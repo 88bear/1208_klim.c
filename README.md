@@ -1,4 +1,4 @@
-# sort_struct_klim.c
+# 1209_klim.c
 
 ## 看完請在心中默念我愛071 沒默念計概0分
 ------------
@@ -43,8 +43,42 @@ int main(){
 
 ```c
 #include <stdio.h>
-#include <stdlib.h>
+#define N_INT    1024
 
-not done yet
+void displayBits(unsigned int value){
+    unsigned int displayMark = 1 << 31;
+    for(unsigned int c = 1; c <= 32; ++c){
+        putchar(value & displayMark ? '1' : '0');
+        value <<= 1;
+        if(c % 8 == 0 && c != 32) putchar(' ');
+    }
+    putchar('\n');
+}
+int main(){
+    int newNumA = 0, newNumB = 0;
+    int numA[N_INT],numB[N_INT];
+    int A = 0, B = 0;
+    while(scanf("%d%d", &A, &B) != EOF){
+        if(A == 0 && B == 0) break;
+        for(int i = 0; i < A; ++i){
+            scanf("%d", &numA[i]);
+        }
+        for(int i = 0; i < B; ++i){
+            scanf("%d", &numB[i]);
+        }
+        for(int i = 0; i < A; ++i){
+            newNumA = (1 << numA[i]) | newNumA;
+        }
+        for(int i = 0; i < B; ++i){
+            newNumB = (1 << numB[i]) | newNumB;
+        }
+        printf("first  set : "); displayBits(newNumA);
+        printf("second set : "); displayBits(newNumB);
+        printf("union      : "); displayBits(newNumA|newNumB);
+        printf("xor        : "); displayBits(newNumA^newNumB);
+        newNumA = 0; newNumB = 0;
+    }
+    return 0;
+}
 
 ```
