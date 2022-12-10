@@ -16,7 +16,6 @@ typedef struct {
 } Record;
 
 int rec_cmp(const void *a,const void *b){
-        
         Record* ps0 = (Record*) a;
         Record* ps1 = (Record*) b;
         if(strcmp(ps0->name, ps1->name) == 0){
@@ -27,7 +26,7 @@ int rec_cmp(const void *a,const void *b){
 }
 
 int main(){
-        int cnt=0;
+        int cnt = 0;
         Record std1[N_REC];
         while(scanf("%s %d", std1[cnt].name, &std1[cnt].age) != EOF){
                 cnt++;
