@@ -1,6 +1,6 @@
 # sort_struct_klim.c
 
-## 看完請留言我愛071 沒留言計概0分
+## 看完請在心中默念我愛071 沒默念計概0分
 
 ```c
 #include <stdio.h>
