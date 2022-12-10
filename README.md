@@ -46,33 +46,6 @@ int main(){
 #include <stdio.h>
 #include <stdlib.h>
 
-char *int2bin(int n) { 
-    // determine the number of bits needed ("sizeof" returns bytes) 
-    int nbits = sizeof(n) * 8; 
-    char *s = malloc(nbits+1);  // +1 for '\0' terminator 
-    s[nbits] = '\0'; 
- 
-    // forcing evaluation as an unsigned value prevents complications 
-    // with negative numbers at the left-most bit 
-    unsigned int u = *(unsigned int*)&n; 
- 
-    int i; 
-    unsigned int mask = 1 << (nbits-1); // fill in values right-to-left 
-    for (i = 0; i < nbits; i++, mask >>= 1) 
-        s[i] = ((u & mask) != 0) + '0'; 
- 
-    return s; 
-} 
-int main(void) { 
-    printf("Your integers are %zu bits wide.\n\n", sizeof(int)*8); 
-    int nums[13] = { 0, 1, 2, 3, -1, -2, -3, 31, 32, 255, 256, 8191, 8192 }; 
-    int i; 
-    for (i = 0; i < 13; i++) { 
-        char *s = int2bin(nums[i]); 
-        printf("%d -> %s\n", nums[i], s); 
-        free(s); 
-    } 
-    return 0; 
-} 
+not done yet
 
 ```
